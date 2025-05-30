@@ -1,0 +1,111 @@
+* Lect4 
+** Data Featueres
+   - A column within a table is commonly referred to as a feature.
+   -  Synonyms: attribute, input, predictor, variable
+
+** Variability Metrics
+*** Deviation
+    The differences between the observed values and the estimate of location
+    Synonyms: errors, residual
+*** Variance
+    The sum of sqaured deviations from the mean divided by n - 1 where n is the number of data values
+    Synonyms: mean-squared-error
+*** Standard deviation
+    The square root of variance
+*** Mean absolute deviation
+    The mean of the absolute values of teh deviation from the mean
+    Synonyms: 11-norm, Manhatten norm
+*** Median absolute deviation from the median
+    The median of the absolute values of the deviation
+
+** Correlation
+*** Correlation coefficient
+    A metric that measures the extend to which numeric variables are associated with one another 
+*** Correlation matrix
+    A table where the variables are shown on both rows and columns, and the cell values arethe correlation between the variables
+    - can colaborate with heatmap to find the cluster or relation mode
+*** Heat Map
+    usually, we use heatmap using Coreelation Matrix to find which features has higher relations
+    the warmer color is, more related the two features are
+
+** PCA (principle component analysis)
+*** Object:
+    to project the high dimensional data to the lower dimensional space 
+    while keeping the original data's variace infomation (that is, errors or differences)
+*** Reason
+    the original features are usually highly correlated to each other, 
+    which will often result in the unstability of the model
+    PCA can change these related data into the new, both uncorrelated Principal Components
+
+*** Steps
+    ~ Centralization
+      each variables decrease the average of it in order to make new data 
+      is speard around the origin (0 on axis)
+    ~ construct the Covariance or the Correlation matrix
+      the correlation can tell whether two features are related enough
+      so do the corrrelation matrix
+    ~ Eigen-Decomposition
+      matrix A just like converter, it can change the input vector x into A * x
+      if there exists a vector x (x!=0) that can maintain the same vector after A * x (the length changes only)
+      A * x = r * x
+      A is the eigenvector while r is the scaling factor
+      why do we need Eigen-Decomposition?
+      throw A, we can simplify the mixed scaling + rotate + slice to only A (scaling)
+    ~ sorting selection
+      sort values in featuress by big to small and select the k elements from front
+      to the projection matrix W = \[v1, v2, v3 ... vk]
+    ~ map the original data to the k vectors
+      Xpca = XW;
+
+*** Result:
+    - the new dimension (principle components) are linear irrelevant (orthogonal) and it terminate the relation between original datas
+    - the components in the front usually can fetch the ^the principle direction of variance^
+    - what is the principle direction of variance?
+      for the variance, it means the spread scale, the bigger variance is, the bigger scale the data place
+      And the PCA actually find the direction that the variance that has the biggest value, that is ^the first component of Principal Components^
+      and the second vector of the principle components is the sub biggest vairance in the u1 and u2 (they are orthogonal) plane
+
+*** How to calculate PCA
+
+*** Code
+    @code python
+    # How to use PCA
+
+    from matplotlib.patches import ArrowStyle
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    from sklearn.decomposition import PCA
+
+    sns.set()
+
+    N_PCA_COMPONENTS = 2
+
+    rng = np.random.RandomState(1)
+    X = np.dot(rng.rand(2, 2), rng.randn(2, 200)).T
+    plt.scatter(X[:, 0], X[:, 1])
+    plt.axis("equal")
+    # plt.show()
+
+
+    pca = PCA(n_components=N_PCA_COMPONENTS)
+    pca.fit(X)
+    print(pca.components_)
+    print(pca.explained_variance_)
+
+
+    def draw_vector(v0, v1, ax=None):
+        ax = ax or plt.gca()
+    arrowprop = dict(arrowstyle="->", linewidth=2, shrinkA=0, shrinkB=0)
+    ax.annotate("", v1, v0, arrowprops=arrowprop)
+
+
+    plt.scatter(X[:, 0], X[:, 1], alpha=0.2)
+    for length, vector in zip(pca.explained_variance_, pca.components_):
+        v = vector * 3 * np.sqrt(length)
+    draw_vector(pca.mean_, pca.mean_ + v)
+    plt.axis("equal")
+    plt.show()
+
+    @end
+

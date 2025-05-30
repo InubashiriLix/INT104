@@ -1,0 +1,22 @@
+* Lect3 Data Collection and Data Distribution  {:lect03.norg:}
+  - chinese comprehension
+
+* Lect4 {:lect04.norg:}
+** Data features
+** Variability Metrics
+*** Deviation
+*** Variance
+*** Standard deviation
+*** Mean absolute deviation
+*** Median absolute deviation from the median
+** Correlation
+*** Correlation coefficient
+*** Correlation matrix
+*** Heat Map
+** (-) PCA (principle component analysis)
+*** (x) Object:
+*** (x) Reason
+*** (x) Steps
+*** (x) Result:
+*** ( ) How to calculate PCA (NOT DONE) (FORMULA NEEDED)
+*** (x) Code
