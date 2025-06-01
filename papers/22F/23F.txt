@@ -18,7 +18,7 @@ Sol.,
         b = ( 60 + 10 ) / 200 * 1000 = 350
     (2) The overall accuracy is [c] and the recall is [d] .
         overall accuracy = (60 + 125) / 200 = 0.925
-        overall recall = (5 + 10) / 200  = 0.075
+        overall recall = (125) / (5 + 125)  = 0.9615
 
 2. The following python code is to find the odd numbers in randomly generated 
     100 integers in the range of 1 to 100. Please fill in the blank to complete
