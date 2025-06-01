@@ -109,3 +109,83 @@
 
     @end
 
+
+* HOW TO CALCULATE PCA
+** step 1
+    @code text
+   +---+---+
+   | A | B |
+   +---+---+
+   | 2 | 0 |
+   +---+---+
+   | 0 | 1 |   X
+   +---+---+
+   | 4 | 3 |
+   +---+---+
+    @end
+    m = 3 is the rows (smaples)
+   n = 2 is the num of features
+** step2
+   zero average + standarlized to 
+   zij = ( xij - uij ) / sj
+   u is the average of the feature
+   x is the eleemnt at i j
+   sj is the Standard Deviation
+   uj =  1/m * sum(xij)(from i to m)
+   sj = sqrt(( 1/m-1 ) * sum(xij - uj)^2 (from 1 to m))
+   so for feature A
+   uA = (2 + 0 + 4) / 3 = 2
+   sA = sqrt( (1/2) * (0 + 4 + 4) ) = sqrt(4) = 2
+    thus by    zij = ( xij - uij ) / sj
+    @code  text
+    uB = 4/3
+    sB = sqrt(2*(16/9 + 1/9 + 25/9)) = sqrt(82/9) = 2.3333
+    +---+-----------+
+    | A | B         |
+    +---+-----------+
+    | 0 | -0.8729   |
+    +---+-----------+
+    | -1 | -0.2182 |   X
+   +---+-----------+
+    | 1 | 1.0911 |
+   +---+-----------+
+   @end
+
+** step3 Covariance matrix C
+   C = 1/(m-1) * Z^T * Z
+   @code text
+   Z^T * Z = 
+   [2   1.3093]
+   [1.3093 2.3333]
+
+   C = 1/2 * Z^T * Z
+   C = [1   0.6547]
+   [0.6547, 1.1667]
+    @end
+
+** step4 Eigen-Decomposition
+   [1   0.6547]
+   [0.6547, 1.1667]
+   det([1 - r, 0.6547], [0.6547, 1.1667 - r]) = 0
+   (1 - r)(1.1667 - r) - 0.6547^2 = 0
+   -> r1 = 1.7354, r2 = 0.4313
+** step5  get the eigenvectos
+   −0.7354 0.6547   *  [v1, v2] = 0
+    0.6547 −0.5687
+   v2 = 1.1235v1
+
+*** standardlization
+    v1 = 1 / sqrt(1 + 1.1235^2)\[1, 1.235] = \[0.6645, 0.7473]
+    v2 = 1 / sqrt(1 + 1.1235^2)\[1.1235, -1] = [-0.7473, 0.6645]
+
+** Step6
+   get k main conponents:
+   λ	    解释的方差百分比
+   1.7354   1.7354/(1.7354+0.4313)=80.1%
+   0.4313	19.9 %
+   k = 1 when you want to get 80% infos, pick λ1
+** PROJECT
+   Zproj = ZW (W = λ1)
+
+
+
