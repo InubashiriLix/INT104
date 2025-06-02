@@ -9,6 +9,8 @@
    - Linear Regression {:LinearRegression.norg:}
    - Ridge Regression {:Ridge_Regression.norg:}
 ** No Labeled + Unsupervised + group + clustering
+   - GMM {:GMM.norg:}
+   - DBSCAN {:DBSCAN.norg:}
    - K-means {:KMeans.norg:}
    - Agglomerative Clustering {:Agglomerative_Clustering.norg:}
    - Divisive Clustering {:DivisiveClustering.norg:}
