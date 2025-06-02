@@ -1,22 +1,19 @@
-* Lect3 Data Collection and Data Distribution  {:lect03.norg:}
-  - chinese comprehension
+* MODELS
+ ** Labeled + supervised + category + classfication
+    - KNN {:KNN.norg:}
+    - Logistic Regression {:Logicstic_Regression.norg:}
+    - SVM {:SVM.norg:}
+    - CART {:CART.norg:}
+** labeled + supervised + Quantity + Regression
+   - CART {:CART.norg:}
+   - Linear Regression {:LinearRegression.norg:}
+   - Ridge Regression {:Ridge_Regression.norg:}
+** No Labeled + Unsupervised + group + clustering
+   - K-means {:KMeans.norg:}
+   - Agglomerative Clustering {:Agglomerative_Clustering.norg:}
+   - Divisive Clustering {:DivisiveClustering.norg:}
+** No labeled + Unsupervised + Dimension Reduction
+   - PCA {:PCA.norg:}
+   - t-SNE + UMAP + ENcoding {:decomponents.norg:}
 
-* Lect4 {:lect04.norg:}
-** Data features
-** Variability Metrics
-*** Deviation
-*** Variance
-*** Standard deviation
-*** Mean absolute deviation
-*** Median absolute deviation from the median
-** Correlation
-*** Correlation coefficient
-*** Correlation matrix
-*** Heat Map
-** (-) PCA (principle component analysis)
-*** (x) Object:
-*** (x) Reason
-*** (x) Steps
-*** (x) Result:
-*** ( ) How to calculate PCA (NOT DONE) (FORMULA NEEDED)
-*** (x) Code
+

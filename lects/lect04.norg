@@ -11,7 +11,7 @@
     The sum of sqaured deviations from the mean divided by n - 1 where n is the number of data values
     Synonyms: mean-squared-error
 *** Standard deviation
-    The square root of variance
+    The sqrt root of variance
 *** Mean absolute deviation
     The mean of the absolute values of teh deviation from the mean
     Synonyms: 11-norm, Manhatten norm
@@ -19,7 +19,7 @@
     The median of the absolute values of the deviation
 
 ** Correlation
-*** Correlation coefficient
+*** Correlation coefficient (Pearson's Correlation Coefficient)
     A metric that measures the extend to which numeric variables are associated with one another 
 *** Correlation matrix
     A table where the variables are shown on both rows and columns, and the cell values arethe correlation between the variables

@@ -35,14 +35,16 @@
 
 ** Sampling Distribution
 *** Sample statistic 
-    A metric calculated for a sample of data drawn from a larger population
-    for example: N_sample / N_population
+    the features of the data
+    for example: average, standard deviation, median, etc
 *** Data distribution
     The frequency distribution of individual values in a data set.
-    for example: the histogram plot
+    or the probability of where is the new data
+    for example: the histogram plot, probability density function, etc
 *** Sampling distribution
     The frequency distribution of a sample statistic over many samples or resamples.
     example: for 1000 samples in the data, draw a distribution graph of the each value's frequency
+    example2: pick 1000 person from a population, and calculate the average tall each time, then draw a mean-square distribution graph of the average tall
 *** Central limit theorem
     The tendency of the sampling distribution to take on a normal shape as sample size rises.
     if your sample num is big enough, then the sample average's layout is going to Normal Distribution
